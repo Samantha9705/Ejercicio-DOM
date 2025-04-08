@@ -16,7 +16,27 @@ console.log (elementos.length);
 console.log(elementos.item(1))
 
 btnMostrar.addEventListener("click", function(event){
-    console.log ("boton btnmostrar presionado");
+    event.preventDefault(); //no hagas lo que haces por defecto 
+        let element =  document.createElement("li");
+        element.innerText="another item";
+        element.classList.add("list-group-item");
+
+let element2 = element.cloneNode(true);
+
+        //listas.item(0).before(element);
+        //listas.item(0).prepend(element2);
+       // listas.item(0).append(element);
+        //listas.item(0).after(element2);
+    //console.log ("boton btnmostrar presionado");
+   // listas.item(1).insertAdjacentElement("afterbegin", element)
+   // listas.item(1).insertAdjacentElement("beforeend", element2)
+
+    listas.item(1).insertAdjacentHTML("afterbegin", `<li class="list-group-item"> After begin item</li>`);
+    listas.item(1).insertAdjacentHTML("beforebegin", `<li class="list-group-item"> Before begin item</li>`);
+    listas.item(1).insertAdjacentHTML("afterend", `<li class="list-group-item"> After end item</li>`);
+    listas.item(1).insertAdjacentHTML("beforeend", `<li class="list-group-item"> Before end item</li>`);
+    
+
 });
 
 
